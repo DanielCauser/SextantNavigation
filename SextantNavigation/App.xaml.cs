@@ -7,24 +7,27 @@ namespace SextantNavigation;
 
 public partial class App : Application
 {
+
+    public static Action<Type> RootNavigation;
+
+
 	public App()
 	{
 		InitializeComponent();
 
-        Locator
-            .CurrentMutable
-            .RegisterNavigationView(() => new NavigationView(RxApp.MainThreadScheduler, RxApp.TaskpoolScheduler, ViewLocator.Current))
-            .RegisterParameterViewStackService()
-            .RegisterViewForNavigation(() => new MainPage(), () => new MainViewModel())
-            .RegisterViewForNavigation(() => new LogedInPage(), () => new LogedInViewModel());
+        RootNavigation = (Type type) =>
+        {
+            if (type.Name == nameof(MainPage))
+            {
+                MainPage = new MainPage();
+            }
+            else
+            {
+                MainPage = new LoginPage();
+            }
+        };
 
-        Locator
-            .Current
-            .GetService<IParameterViewStackService>()
-            .PushPage<MainViewModel>(resetStack: true)
-            .Subscribe();
-
-        MainPage = Locator.Current.GetNavigationView("NavigationView");
+        RootNavigation.Invoke(typeof(MainPage));
     }
 }
 

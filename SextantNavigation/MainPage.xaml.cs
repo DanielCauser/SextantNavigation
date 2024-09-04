@@ -5,7 +5,7 @@ using Splat;
 
 namespace SextantNavigation;
 
-public partial class MainPage : ReactiveContentPage<MainViewModel>
+public partial class MainPage : FlyoutPage
 {
 	public MainPage()
 	{

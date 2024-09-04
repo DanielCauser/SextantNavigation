@@ -2,7 +2,7 @@
 
 namespace SextantNavigation;
 
-public partial class MenuPage : ReactiveContentPage<MenuViewModel>
+public partial class MenuPage : ContentPage
 {
 	public MenuPage()
 	{
