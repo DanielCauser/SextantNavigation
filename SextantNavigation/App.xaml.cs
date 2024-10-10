@@ -1,15 +1,11 @@
 ﻿using ReactiveUI;
-using Sextant;
-using Sextant.Maui;
 using Splat;
 
 namespace SextantNavigation;
 
 public partial class App : Application
 {
-
     public static Action<Type> RootNavigation;
-
 
 	public App()
 	{

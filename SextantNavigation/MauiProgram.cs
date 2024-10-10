@@ -1,7 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
 using ReactiveUI;
-using Sextant;
-using Sextant.Maui;
 using Splat;
 
 namespace SextantNavigation;
