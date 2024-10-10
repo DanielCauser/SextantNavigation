@@ -8,9 +8,13 @@ public partial class LoginPage : ContentPage
 	{
 		InitializeComponent();
 
-        Logintbtn.Command = ReactiveCommand.Create(() =>
+        Logintbtn.Command = ReactiveCommand.CreateFromTask(() =>
         {
-            App.RootNavigation.Invoke(typeof(MainPage));
+            var loginPage = App.NavigationManager.Navigation.NavigationStack[0];
+
+
+            App.NavigationManager.Navigation.InsertPageBefore(new MainPage(), App.NavigationManager.Navigation.NavigationStack[0]);
+            return App.NavigationManager.Navigation.PopToRootAsync(false);
         });
 
     }

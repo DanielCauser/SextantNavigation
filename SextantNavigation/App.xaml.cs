@@ -1,6 +1,4 @@
 ﻿using ReactiveUI;
-using Sextant;
-using Sextant.Maui;
 using Splat;
 
 namespace SextantNavigation;
@@ -9,25 +7,15 @@ public partial class App : Application
 {
 
     public static Action<Type> RootNavigation;
+    public static NavigationPage NavigationManager;
 
 
-	public App()
+    public App()
 	{
 		InitializeComponent();
 
-        RootNavigation = (Type type) =>
-        {
-            if (type.Name == nameof(MainPage))
-            {
-                MainPage = new MainPage();
-            }
-            else
-            {
-                MainPage = new LoginPage();
-            }
-        };
-
-        RootNavigation.Invoke(typeof(MainPage));
+        NavigationManager = new NavigationPage(new LoginPage());
+        MainPage = NavigationManager;
     }
 }
 
