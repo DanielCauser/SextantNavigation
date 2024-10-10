@@ -11,7 +11,8 @@ public partial class DetailPage : ContentPage
 
 		Logoutbtn.Command = ReactiveCommand.Create(() =>
 		{
-			App.RootNavigation.Invoke( typeof(LoginPage));
+            App.NavigationManager.Navigation.InsertPageBefore(new LoginPage(), App.NavigationManager.Navigation.NavigationStack[0]);
+            return App.NavigationManager.Navigation.PopToRootAsync(false);
 		});
 
     }
