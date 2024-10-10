@@ -35,7 +35,7 @@ public static class SubscribeSafeExtensions
                 ex =>
                 {
                     var logger = new DefaultLogManager().GetLogger(typeof(SubscribeSafeExtensions));
-                    logger.Error(ex, "An exception went unhandled. Caller member name: '{0}', caller file path: '{1}', caller line number: {2}.", callerMemberName, callerFilePath, callerLineNumber);
+                    logger.Error(ex.Message, "An exception went unhandled. Caller member name: '{0}', caller file path: '{1}', caller line number: {2}.", callerMemberName, callerFilePath, callerLineNumber);
 
                     Debugger.Break();
                 });

@@ -1,4 +1,5 @@
-﻿using ReactiveUI;
+﻿using System;
+using ReactiveUI;
 using Sextant;
 using Sextant.Maui;
 using Splat;
@@ -18,10 +19,11 @@ public partial class App : Application
             .RegisterViewForNavigation(() => new MainPage(), () => new MainViewModel())
             .RegisterViewForNavigation(() => new LogedInPage(), () => new LogedInViewModel());
 
+
         Locator
             .Current
             .GetService<IParameterViewStackService>()
-            .PushPage<MainViewModel>(resetStack: true)
+            .PushPage<MainViewModel>()
             .Subscribe();
 
         MainPage = Locator.Current.GetNavigationView("NavigationView");

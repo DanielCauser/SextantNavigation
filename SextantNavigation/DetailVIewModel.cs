@@ -2,15 +2,24 @@
 using System.Reactive;
 using System.Reactive.Linq;
 using ReactiveUI;
+using ReactiveUI.Fody.Helpers;
 using Sextant;
+using Splat;
 
 namespace SextantNavigation
 {
 	public class DetailVIewModel : ReactiveObject, INavigable, IViewModel
     {
-		public DetailVIewModel()
+        public ReactiveCommand<Unit, Unit> BackToLoginCommand { get; }
+
+        public DetailVIewModel()
 		{
-		}
+            BackToLoginCommand = ReactiveCommand.Create(() =>
+            {
+                Locator.Current.GetService<IViewStackService>().PushPage<MainViewModel>(resetStack: true).Subscribe();
+            });
+
+        }
 
         public string? Id => "DetailVIewModel";
 

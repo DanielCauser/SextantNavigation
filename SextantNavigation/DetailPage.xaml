@@ -13,5 +13,11 @@
             Text="I'm on the Details Boysss"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+
+        <Button 
+            Text="Back to Login"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            Command="{Binding BackToLoginCommand}"/>
     </VerticalStackLayout>
 </rxui:ReactiveContentPage>
