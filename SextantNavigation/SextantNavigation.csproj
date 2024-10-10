@@ -65,7 +65,7 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 
 		<PackageReference Include="ReactiveUI.Maui" Version="20.1.1" />
-		<PackageReference Include="Sextant.Maui" Version="3.0.1" />
+		<!--<PackageReference Include="Sextant.Maui" Version="3.0.1" />-->
 		<PackageReference Include="ReactiveUI.Fody" Version="19.5.41" />
 	</ItemGroup>
 </Project>
